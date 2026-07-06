@@ -5,48 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>'t Kapiteintje | Bruin Café Blankenberge</title>
     
-    <!-- Google Fonts voor de klassieke maritieme uitstraling -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Authentieke, elegante combinatie -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- CSS Variabelen voor de Huisstijl --- */
+        /* --- Authentic Bruin Café Huisstijl --- */
         :root {
-            --hout-donker: #2C1E16;
-            --hout-midden: #4A3219;
-            --goud-messing: #D4AF37;
-            --marine-blauw: #1B263B;
-            --tekst-licht: #FDF8E1;
-            --tekst-gedempt: #C5BBAA;
+            --diep-bruin: #2B2321;
+            --warm-bruin: #3D312E;
+            --antiek-goud: #C5A059;
+            --crème: #E8DCC4;
+            --donker-accent: #1A1615;
+            --tekst-kleur: #dcd0b5;
         }
 
-        /* --- Basis Reset & Typografie --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        html { scroll-behavior: smooth; }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Source Sans Pro', sans-serif;
-            background-color: var(--hout-donker);
-            color: var(--tekst-licht);
-            line-height: 1.6;
+            font-family: 'Libre Baskerville', serif;
+            background-color: var(--diep-bruin);
+            color: var(--tekst-kleur);
+            line-height: 1.7;
+            font-size: 1.1rem;
         }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--goud-messing);
+        h1, h2, h3 { 
+            font-family: 'Playfair Display', serif; 
+            color: var(--antiek-goud); 
+            letter-spacing: 0.5px;
         }
 
         /* --- Navigatie --- */
         header {
-            background-color: rgba(27, 38, 59, 0.95);
-            padding: 1rem 2rem;
+            background-color: var(--donker-accent);
+            padding: 1.5rem 2rem;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 100;
-            border-bottom: 2px solid var(--goud-messing);
+            border-bottom: 2px solid var(--antiek-goud);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -56,434 +55,209 @@
             font-size: 1.8rem;
             font-weight: 700;
             font-family: 'Playfair Display', serif;
-            letter-spacing: 1px;
-            color: var(--goud-messing);
+            color: var(--antiek-goud);
             text-decoration: none;
+            font-style: normal; /* Aangepast naar normaal */
         }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
+        nav ul { list-style: none; display: flex; gap: 25px; }
+        nav a { color: var(--crème); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; transition: color 0.3s; }
+        nav a:hover { color: var(--antiek-goud); }
 
-        nav a {
-            color: var(--tekst-licht);
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--goud-messing);
-        }
-
-        /* --- Knoppen --- */
-        .btn-primair {
-            display: inline-block;
-            background-color: var(--goud-messing);
-            color: var(--hout-donker);
-            padding: 12px 24px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.2s;
-            margin-top: 20px;
-        }
-
-        .btn-primair:hover {
-            background-color: #e6c555;
-            transform: scale(1.05);
-        }
-
-        /* Zwevende bel-knop voor mobiel */
-        .bel-knop-mobiel {
-            display: none; /* Standaard verborgen op desktop */
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--goud-messing);
-            color: var(--hout-donker);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            text-decoration: none;
-            font-size: 1.8rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.2s;
-        }
-
-        .bel-knop-mobiel:active {
-            transform: scale(0.9);
-        }
-
-        /* --- Hero Sectie (Gesplitste Weergave) --- */
+        /* --- Hero Sectie --- */
         .hero {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Twee gelijke kolommen (50/50 split) */
-            height: 100vh;
-            margin-top: 68px; /* Ruimte voor de vaste header */
-            background-color: var(--marine-blauw);
-            overflow: hidden;
+            grid-template-columns: 1fr 1fr;
+            height: 90vh;
+            margin-top: 70px;
+            background-color: var(--donker-accent);
         }
 
         .hero-content {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-start;
             padding: 4rem;
-            text-align: left;
         }
 
-        .hero-content h1 {
-            font-size: 4.5rem;
-            margin-bottom: 10px;
-            line-height: 1.1;
-        }
+        .hero-content h1 { font-size: 4.5rem; margin-bottom: 15px; }
+        .hero-content p { font-size: 1.3rem; color: #bcaaa4; margin-bottom: 25px; max-width: 500px; }
 
-        .hero-content p {
-            font-size: 1.5rem;
-            max-width: 600px;
-            margin-bottom: 30px;
-            font-style: italic;
-            color: var(--tekst-gedempt);
-        }
-
-        .hero-image {
-            height: 100%;
-            width: 100%;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* --- Container & Layout --- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 20px;
-        }
-
-        .sectie-titel {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-        
-        .sectie-titel::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 3px;
-            background-color: var(--goud-messing);
-            margin: 10px auto 0;
-        }
-
-        /* --- Grid Layouts --- */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            background-color: var(--hout-midden);
-            padding: 3rem;
-            border-radius: 8px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .info-kaart h3 {
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 10px;
-        }
-
-        .info-kaart p, .info-kaart ul {
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-        
-        .info-kaart ul {
-            list-style-type: none;
-        }
-
-        /* --- Troeven Sectie --- */
-        .troeven-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-        
-        .troef-box {
-            background-color: var(--marine-blauw);
-            padding: 2rem;
-            border-radius: 8px;
-            flex: 1 1 300px;
-            text-align: center;
-            border-top: 3px solid var(--goud-messing);
-        }
-
-        /* --- Foto Galerij --- */
-        .galerij-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-
-        .galerij-item {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
+        .btn-primair {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--antiek-goud), #a68138);
+            color: var(--donker-accent);
+            padding: 16px 40px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
             border-radius: 4px;
-            border: 2px solid var(--hout-midden);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 50px;
+            align-self: flex-start;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .btn-primair:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.5); }
+
+        .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* --- Secties --- */
+        section { scroll-margin-top: 100px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 4rem 20px; }
+        .sectie-titel { text-align: center; font-size: 3.5rem; margin-bottom: 3rem; }
+
+        /* --- Kaarten --- */
+        .info-grid, .troeven-container, .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-kaart, .troef-box, .review-kaart {
+            background-color: var(--warm-bruin);
+            padding: 2.5rem;
+            border-radius: 4px;
+            border: 1px solid rgba(197, 160, 89, 0.3);
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        .galerij-item:hover {
-            transform: scale(1.03);
-            border-color: var(--goud-messing);
+        .info-kaart:hover, .troef-box:hover, .review-kaart:hover {
+            transform: translateY(-5px);
+            border-color: var(--antiek-goud);
         }
 
-        /* --- Reviews Sectie --- */
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
+        .info-kaart h3, .troef-box h3 { font-size: 1.8rem; margin-bottom: 1.5rem; }
+        .info-kaart p, .info-kaart li, .troef-box p { font-size: 1.25rem; color: var(--crème); }
 
-        .review-kaart {
-            background-color: rgba(255,255,255,0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--goud-messing);
-        }
+        /* --- Galerij --- */
+        .galerij-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .galerij-item { width: 100%; height: 250px; object-fit: cover; border-radius: 2px; border: 2px solid var(--warm-bruin); transition: transform 0.3s; }
+        .galerij-item:hover { transform: scale(1.02); }
 
-        .sterren {
-            color: var(--goud-messing);
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
+        /* --- Reviews --- */
+        .review-auteur { font-weight: 700; color: var(--antiek-goud); margin-bottom: 5px; font-size: 1.2rem; }
+        .sterren { color: var(--antiek-goud); margin-bottom: 10px; font-size: 1.2rem; }
+        .review-tekst { font-size: 1.1rem; font-style: italic; }
 
-        .review-auteur {
-            font-weight: 600;
-            margin-bottom: 5px;
-            font-size: 1.1rem;
-        }
-        
-        .review-tijd {
-            font-size: 0.8rem;
-            color: var(--tekst-gedempt);
-            margin-bottom: 15px;
-        }
-
-        /* --- Footer --- */
-        footer {
-            background-color: #111;
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid var(--goud-messing);
-        }
-        
-        /* --- Responsive Design (MOBIEL) --- */
+        /* --- Mobiel --- */
         @media (max-width: 768px) {
-            nav ul {
-                display: none; 
-            }
-            
-            /* Mobiele lay-out voor de nieuwe hero sectie */
-            .hero {
-                grid-template-columns: 1fr;
-                height: auto;
-            }
-            .hero-content {
-                padding: 3rem 2rem;
-                align-items: center;
-                text-align: center;
-            }
-            .hero-image {
-                height: 45vh;
-            }
-            .hero-content h1 { font-size: 3rem; }
-            
-            .info-grid { padding: 1.5rem; }
-            
-            /* Toon de zwevende belknop enkel op kleinere schermen */
-            .bel-knop-mobiel {
-                display: flex; 
-            }
+            nav ul { display: none; }
+            .hero { grid-template-columns: 1fr; height: auto; }
+            .hero-content { padding: 2rem; text-align: center; align-items: center; }
+            .hero-content .btn-primair { align-self: center; }
+            .sectie-titel { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header & Navigatie -->
     <header>
         <a href="#" class="logo">⚓ 't Kapiteintje</a>
         <nav>
             <ul>
                 <li><a href="#over">Over ons</a></li>
                 <li><a href="#info">Praktisch</a></li>
+                <li><a href="#troeven">Troeven</a></li>
                 <li><a href="#galerij">Galerij</a></li>
                 <li><a href="#reviews">Reviews</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Zwevende belknop voor mobiel -->
-    <a href="tel:+3250425257" class="bel-knop-mobiel" title="Bel ons">📞</a>
-
-    <!-- Hero / Homepage met gesplitste weergave -->
     <section class="hero" id="over">
         <div class="hero-content">
             <h1>'t Kapiteintje</h1>
-            <p>Een authentiek bruin volkscafé aan de haven van Blankenberge.</p>
-            <br>
-            <p>Uniek ingericht als een scheepskajuit, compleet met portretten van echte Blankenbergse vissers en maritieme snuisterijen. De perfecte locatie voor een perfect getapte Stella Artois en live optredens.</p>
+            <p>Een authentiek bruin volkscafé aan de haven van Blankenberge. Uniek ingericht als een scheepskajuit, compleet met portretten van echte Blankenbergse vissers en maritieme snuisterijen.</p>
             <a href="tel:+3250425257" class="btn-primair">📞 Bel Ons: 050 42 52 57</a>
         </div>
         <div class="hero-image">
-            <!-- Pas de 'src' aan naar de locatie van de gewenste afbeelding op jouw computer -->
-            <img src="afbeeldingen kapteintje/achtergrondfoto.webp" alt="'t Kapiteintje - Vooraanzicht">
+            <img src=  "afbeeldingen kapteintje/achtergrondfoto.webp" alt="'t Kapiteintje - Vooraanzicht" onerror="this.src='https://placehold.co/800x600/3D312E/E8DCC4?text=Foto+Kapiteintje'">
         </div>
     </section>
 
-    <!-- Informatie & Openingsuren -->
     <section id="info" class="container">
         <h2 class="sectie-titel">Welkom aan Boord</h2>
-        
         <div class="info-grid">
             <div class="info-kaart">
                 <h3>⚓ Het Café</h3>
-                <br>
                 <p><strong>Adres:</strong> De Smet de Naeyerlaan 19, 8370 Blankenberge</p>
-                <p><strong>Telefoon:</strong> <a href="tel:+3250425257" style="color: var(--goud-messing); text-decoration: none;">+32 50 42 52 57</a></p>
-                <p><strong>Prijsklasse:</strong> Gemiddeld (€10 - €20)</p>
-                <p><strong>Reserveringen:</strong> Niet mogelijk (vrije inloop)</p>
+                <p><strong>Telefoon:</strong> +32 50 42 52 57</p>
             </div>
-            
             <div class="info-kaart">
                 <h3>🕒 Openingsuren</h3>
                 <ul>
-                    <li><strong>Maandag & Dinsdag:</strong> Gesloten</li>
-                    <li><strong>Woensdag:</strong> 14:00 - 23:00</li>
-                    <li><strong>Donderdag:</strong> 14:00 - 23:00</li>
-                    <li><strong>Vrijdag:</strong> 10:00 - 13:00 & 14:00 - 01:00</li>
-                    <li><strong>Zaterdag:</strong> 14:00 - 01:00</li>
+                    <li><strong>Woensdag - Donderdag:</strong> 14:00 - 23:00</li>
+                    <li><strong>Vrijdag - Zaterdag:</strong> 10:00 - 01:00</li>
                     <li><strong>Zondag:</strong> 14:00 - 23:00</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Troeven -->
-    <section class="container">
+    <section id="troeven" class="container">
         <h2 class="sectie-titel">Onze Troeven</h2>
         <div class="troeven-container">
             <div class="troef-box">
-                <h3>🍻 Sfeer & Interieur</h3>
-                <p>Een warme, informele setting die perfect is voor groepen, toeristen en gezellige dates.</p>
+                <h3>🍻 Sfeer</h3>
+                <p>Warm, informeel en perfect voor gezelligheid in een authentiek kader.</p>
             </div>
             <div class="troef-box">
                 <h3>☀️ Faciliteiten</h3>
-                <p>Gezellig terras (outdoor seating) voor zonnige dagen. Honden zijn ook van harte welkom!</p>
+                <p>Gezellig terras aan de haven en honden zijn bij ons altijd welkom!</p>
             </div>
             <div class="troef-box">
                 <h3>🎵 Aanbod</h3>
-                <p>Uitgebreide bier- en cocktailkaart, regelmatige livemuziek en sportuitzendingen op tv.</p>
+                <p>Uitgebreide bierkaart, klassieke Stella en geregeld livemuziek.</p>
             </div>
         </div>
     </section>
 
-    <!-- Galerij -->
     <section id="galerij" class="container">
         <h2 class="sectie-titel">Foto Galerij</h2>
         <div class="galerij-grid">
-            <img src="afbeeldingen kapteintje/sfeer kapiteintje.jpg" alt="Sfeer in 't Kapiteintje" class="galerij-item">
-            <img src="afbeeldingen kapteintje/stella aan de bar.jpeg" alt="Stella Artois aan de bar" class="galerij-item">
-            <img src="afbeeldingen kapteintje/interieur.jpg" alt="Interieur en vissersportretten" class="galerij-item">
-            <img src="afbeeldingen kapteintje/terras.webp" alt="Het terras en de haven" class="galerij-item">
+            <img src="afbeeldingen kapteintje/sfeer kapiteintje.jpg" class="galerij-item" alt="Sfeer" onerror="this.src='https://placehold.co/400x400/3D312E/E8DCC4?text=Sfeer'">
+            <img src="afbeeldingen kapteintje/stella aan de bar.jpeg" class="galerij-item" alt="Stella" onerror="this.src='https://placehold.co/400x400/3D312E/E8DCC4?text=Bar'">
+            <img src="afbeeldingen kapteintje/interieur.jpg" class="galerij-item" alt="Interieur" onerror="this.src='https://placehold.co/400x400/3D312E/E8DCC4?text=Interieur'">
+            <img src="afbeeldingen kapteintje/terras.webp" class="galerij-item" alt="Terras" onerror="this.src='https://placehold.co/400x400/3D312E/E8DCC4?text=Terras'">
         </div>
     </section>
 
-    <!-- Reviews -->
     <section id="reviews" class="container">
-        <h2 class="sectie-titel">Wat Onze Klanten Zeggen</h2>
+        <h2 class="sectie-titel">Wat Klanten Zeggen</h2>
         <div class="reviews-grid">
-            
             <div class="review-kaart">
+                <div class="review-auteur">F. D'hooge</div>
                 <div class="sterren">★★★★★</div>
-                <div class="review-auteur">Filip D'hooge</div>
-                <div class="review-tijd">een maand geleden</div>
-                <p>"Het beste café van Blankenberge met de lekkerste Stella tevens een topbediening en altijd heel veel sfeer."</p>
+                <p class="review-tekst">"Beste café van Blankenberge met de lekkerste Stella!"</p>
             </div>
-
             <div class="review-kaart">
+                <div class="review-auteur">J. de Bakker</div>
                 <div class="sterren">★★★★★</div>
-                <div class="review-auteur">jasmina de bakker</div>
-                <div class="review-tijd">9 maanden geleden</div>
-                <p>"Wij kwamen hier voor een 50ste verjaardag met 45 man. Ons kostelijk geamuseerd. Bediening was snel en vriendelijk!"</p>
+                <p class="review-tekst">"Snel, vriendelijk en heel gezellig voor groepen."</p>
             </div>
-
             <div class="review-kaart">
+                <div class="review-auteur">K. Bruggeman</div>
                 <div class="sterren">★★★★★</div>
-                <div class="review-auteur">Kenny Bruggeman</div>
-                <div class="review-tijd">9 maanden geleden</div>
-                <p>"Beste Stella boertjes in and around town. Altijd sfeer."</p>
+                <p class="review-tekst">"Geweldige bediening met een glimlach, altijd sfeer."</p>
             </div>
-
             <div class="review-kaart">
+                <div class="review-auteur">D. Jurewyts</div>
                 <div class="sterren">★★★★★</div>
-                <div class="review-auteur">Derek Jurewyts</div>
-                <div class="review-tijd">5 jaar geleden</div>
-                <p>"Oud bruincafé die iets magisch uitstraalt... een snelle en vriendelijke bediening, uitgelezen bierkaart, groot terras met mooi uitzicht op het park en de haven."</p>
+                <p class="review-tekst">"Een authentiek bruin café zoals je ze zelden nog ziet."</p>
             </div>
-
             <div class="review-kaart">
+                <div class="review-auteur">J. Vrijs</div>
                 <div class="sterren">★★★★★</div>
-                <div class="review-auteur">vrijs jo</div>
-                <div class="review-tijd">een jaar geleden</div>
-                <p>"Het is een echt cafeetje. Heel leuk en gezellig met een erg leuke sfeer."</p>
+                <p class="review-tekst">"Heerlijk terras met prachtig zicht op de haven."</p>
             </div>
-
             <div class="review-kaart">
+                <div class="review-auteur">T. Geuns</div>
                 <div class="sterren">★★★★★</div>
-                <div class="review-auteur">Tibo Geuns</div>
-                <div class="review-tijd">een jaar geleden</div>
-                <p>"Geweldig gladde pintjes en steeds bediening met een ferme glimlach. Hier wil ik leven."</p>
+                <p class="review-tekst">"Hier kom je voor de gezelligheid en de bierkaart."</p>
             </div>
-
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 't Kapiteintje Blankenberge. Alle rechten voorbehouden.</p>
-    </footer>
-
-    <!-- Smooth Scroll Script -->
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
 </html>
