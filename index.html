@@ -7,6 +7,8 @@
     
     <!-- Google Fonts: Authentieke, elegante combinatie -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome voor Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         /* --- Authentic Bruin Café Huisstijl --- */
@@ -57,7 +59,7 @@
             font-family: 'Playfair Display', serif;
             color: var(--antiek-goud);
             text-decoration: none;
-            font-style: normal; /* Aangepast naar normaal */
+            font-style: normal;
         }
 
         nav ul { list-style: none; display: flex; gap: 25px; }
@@ -109,13 +111,13 @@
         .sectie-titel { text-align: center; font-size: 3.5rem; margin-bottom: 3rem; }
 
         /* --- Kaarten --- */
-        .info-grid, .troeven-container, .reviews-grid {
+        .info-grid, .troeven-container, .reviews-grid, .social-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
-        .info-kaart, .troef-box, .review-kaart {
+        .info-kaart, .troef-box, .review-kaart, .social-box {
             background-color: var(--warm-bruin);
             padding: 2.5rem;
             border-radius: 4px;
@@ -123,13 +125,18 @@
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        .info-kaart:hover, .troef-box:hover, .review-kaart:hover {
+        .info-kaart:hover, .troef-box:hover, .review-kaart:hover, .social-box:hover {
             transform: translateY(-5px);
             border-color: var(--antiek-goud);
         }
 
         .info-kaart h3, .troef-box h3 { font-size: 1.8rem; margin-bottom: 1.5rem; }
         .info-kaart p, .info-kaart li, .troef-box p { font-size: 1.25rem; color: var(--crème); }
+
+        /* --- Socials Specifiek --- */
+        .social-box { text-align: center; text-decoration: none; color: var(--crème); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; }
+        .social-box i { font-size: 3.5rem; color: var(--antiek-goud); }
+        .social-box span { font-size: 1.5rem; font-family: 'Playfair Display', serif; color: var(--antiek-goud); }
 
         /* --- Galerij --- */
         .galerij-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
@@ -162,6 +169,7 @@
                 <li><a href="#troeven">Troeven</a></li>
                 <li><a href="#galerij">Galerij</a></li>
                 <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#socials">Socials</a></li>
             </ul>
         </nav>
     </header>
@@ -173,7 +181,7 @@
             <a href="tel:+3250425257" class="btn-primair">📞 Bel Ons: 050 42 52 57</a>
         </div>
         <div class="hero-image">
-            <img src=  "afbeeldingen kapteintje/achtergrondfoto.webp" alt="'t Kapiteintje - Vooraanzicht" onerror="this.src='https://placehold.co/800x600/3D312E/E8DCC4?text=Foto+Kapiteintje'">
+            <img src="afbeeldingen kapteintje/achtergrondfoto.webp" alt="'t Kapiteintje - Vooraanzicht" onerror="this.src='https://placehold.co/800x600/3D312E/E8DCC4?text=Foto+Kapiteintje'">
         </div>
     </section>
 
@@ -259,5 +267,21 @@
             </div>
         </div>
     </section>
+
+    <!-- Socials Sectie -->
+    <section id="socials" class="container">
+        <h2 class="sectie-titel">Volg ons online</h2>
+        <div class="social-grid">
+            <a href="https://www.facebook.com/cafetkapiteintje" target="_blank" class="social-box">
+                <i class="fab fa-facebook"></i>
+                <span>Facebook</span>
+            </a>
+            <a href="https://www.instagram.com/kapiteintjeblankenberge/" target="_blank" class="social-box">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+        </div>
+    </section>
+
 </body>
 </html>
