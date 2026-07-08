@@ -7,7 +7,7 @@
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome voor Socials en Iconen -->
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
@@ -21,7 +21,7 @@
             --tekst-kleur: #dcd0b5;
         }
 
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -31,7 +31,7 @@
             color: var(--tekst-kleur);
             line-height: 1.7;
             font-size: 1.1rem;
-            overflow-x: hidden; /* Voorkomt horizontale scrollbalken */
+            overflow-x: hidden;
         }
 
         h1, h2, h3 { 
@@ -43,7 +43,7 @@
         /* --- Navigatie --- */
         header {
             background-color: var(--donker-accent);
-            padding: 1rem 2rem;
+            padding: 1.5rem 2rem;
             position: fixed;
             width: 100%;
             top: 0;
@@ -135,7 +135,7 @@
         .container { max-width: 1100px; margin: 0 auto; padding: 4rem 20px; }
         .sectie-titel { text-align: center; font-size: 3.5rem; margin-bottom: 3rem; }
 
-        /* --- Kaarten & Grids --- */
+        /* --- Kaarten --- */
         .info-grid, .troeven-container, .reviews-grid, .socials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -165,7 +165,8 @@
 
         /* --- Galerij --- */
         .galerij-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-        .galerij-item { width: 100%; height: 250px; object-fit: cover; border-radius: 2px; border: 2px solid var(--warm-bruin); }
+        .galerij-item { width: 100%; height: 250px; object-fit: cover; border-radius: 2px; border: 2px solid var(--warm-bruin); transition: transform 0.3s ease; }
+        .galerij-item:hover { transform: scale(1.02); border-color: var(--antiek-goud);}
 
         /* --- Reviews --- */
         .review-auteur { font-weight: 700; color: var(--antiek-goud); margin-bottom: 5px; font-size: 1.2rem; }
@@ -180,7 +181,7 @@
             .hero-content { padding: 2rem; text-align: center; align-items: center; }
             .hero-content .btn-primair { align-self: center; }
             .sectie-titel { font-size: 2.2rem; margin-bottom: 2rem; }
-            .container { padding: 2rem 15px; } /* Zorgt voor marge aan de zijkanten */
+            .container { padding: 2rem 15px; } 
             .info-grid, .troeven-container, .reviews-grid, .socials-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -274,7 +275,7 @@
             <img src="afbeeldingen kapteintje/sfeer kapiteintje.jpg" class="galerij-item" alt="Sfeer" onerror="this.src='https://placehold.co/400x400/3D312E/E8DCC4?text=Sfeer'">
             <img src="afbeeldingen kapteintje/stella aan de bar.jpeg" class="galerij-item" alt="Stella" onerror="this.src='https://placehold.co/400x400/3D312E/E8DCC4?text=Bar'">
             <img src="afbeeldingen kapteintje/interieur.jpg" class="galerij-item" alt="Interieur" onerror="this.src='https://placehold.co/400x400/3D312E/E8DCC4?text=Interieur'">
-            <img src="afbeeldingen kapteintje/terras.webp"galerij-item" alt="Terras" onerror="this.src='https://placehold.co/400x400/3D312E/E8DCC4?text=Terras'">
+            <img src="afbeeldingen kapteintje/terras.webp" class="galerij-item" alt="Terras" onerror="this.src='https://placehold.co/400x400/3D312E/E8DCC4?text=Terras'">
         </div>
     </section>
 
