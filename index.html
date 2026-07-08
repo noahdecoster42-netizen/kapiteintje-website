@@ -21,7 +21,7 @@
             --tekst-kleur: #dcd0b5;
         }
 
-        html { scroll-behavior: smooth; overflow-x: hidden; }
+        html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -32,6 +32,7 @@
             line-height: 1.7;
             font-size: 1.1rem;
             overflow-x: hidden;
+            width: 100%;
         }
 
         h1, h2, h3 { 
@@ -140,6 +141,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            width: 100%;
         }
 
         .info-kaart, .troef-box, .review-kaart, .social-kaart {
@@ -155,18 +157,38 @@
             border-color: var(--antiek-goud);
         }
 
-        .info-kaart h3, .troef-box h3 { font-size: 1.8rem; margin-bottom: 1rem; }
-        .info-kaart p, .info-kaart li, .troef-box p { font-size: 1.1rem; color: var(--crème); }
+        /* --- Social Cards Specific Styling --- */
+        .social-kaart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--tekst-kleur);
+            text-align: center;
+        }
+        .social-kaart h3 { margin-top: 1rem; color: var(--antiek-goud); }
 
-        /* --- Socials Specifiek --- */
-        .social-kaart { text-align: center; text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; color: var(--crème); }
-        .social-kaart i { font-size: 3.5rem; color: var(--antiek-goud); }
-        .social-kaart span { font-size: 1.5rem; font-weight: bold; }
-
-        /* --- Galerij --- */
+        /* --- Galerij & Lightbox --- */
         .galerij-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-        .galerij-item { width: 100%; height: 250px; object-fit: cover; border-radius: 2px; border: 2px solid var(--warm-bruin); transition: transform 0.3s ease; }
-        .galerij-item:hover { transform: scale(1.02); border-color: var(--antiek-goud);}
+        .galerij-item { 
+            width: 100%; 
+            height: 250px; 
+            object-fit: cover; 
+            border-radius: 2px; 
+            border: 2px solid var(--warm-bruin); 
+            transition: transform 0.3s ease, border-color 0.3s ease; 
+            cursor: pointer;
+        }
+        .galerij-item:hover { transform: scale(1.02); border-color: var(--antiek-goud); }
+
+        /* Modal Lightbox */
+        #imageModal {
+            display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.9); align-items: center; justify-content: center;
+        }
+        #modal-img { max-width: 90%; max-height: 80%; border: 4px solid var(--antiek-goud); border-radius: 4px; }
+        #close-btn { position: absolute; top: 20px; right: 30px; font-size: 40px; color: var(--antiek-goud); cursor: pointer; font-weight: bold; z-index: 2001; }
 
         /* --- Reviews --- */
         .review-auteur { font-weight: 700; color: var(--antiek-goud); margin-bottom: 5px; font-size: 1.2rem; }
@@ -182,7 +204,7 @@
             .hero-content .btn-primair { align-self: center; }
             .sectie-titel { font-size: 2.2rem; margin-bottom: 2rem; }
             .container { padding: 2rem 15px; } 
-            .info-grid, .troeven-container, .reviews-grid, .socials-grid { grid-template-columns: 1fr; }
+            #close-btn { right: 20px; top: 10px; }
         }
     </style>
 </head>
@@ -272,60 +294,41 @@
     <section id="galerij" class="container">
         <h2 class="sectie-titel">Foto Galerij</h2>
         <div class="galerij-grid">
-            <img src="afbeeldingen kapteintje/sfeer kapiteintje.jpg" class="galerij-item" alt="Sfeer" onerror="this.src='https://placehold.co/400x400/3D312E/E8DCC4?text=Sfeer'">
-            <img src="afbeeldingen kapteintje/stella aan de bar.jpeg" class="galerij-item" alt="Stella" onerror="this.src='https://placehold.co/400x400/3D312E/E8DCC4?text=Bar'">
-            <img src="afbeeldingen kapteintje/interieur.jpg" class="galerij-item" alt="Interieur" onerror="this.src='https://placehold.co/400x400/3D312E/E8DCC4?text=Interieur'">
-            <img src="afbeeldingen kapteintje/terras.webp" class="galerij-item" alt="Terras" onerror="this.src='https://placehold.co/400x400/3D312E/E8DCC4?text=Terras'">
+            <img src="afbeeldingen kapteintje/sfeer kapiteintje.jpg" class="galerij-item" alt="Sfeer" onclick="openModal(this.src)" onerror="this.src='https://placehold.co/400x400/3D312E/E8DCC4?text=Sfeer'">
+            <img src="afbeeldingen kapteintje/stella aan de bar.jpeg" class="galerij-item" alt="Stella" onclick="openModal(this.src)" onerror="this.src='https://placehold.co/400x400/3D312E/E8DCC4?text=Bar'">
+            <img src="afbeeldingen kapteintje/interieur.jpg" class="galerij-item" alt="Interieur" onclick="openModal(this.src)" onerror="this.src='https://placehold.co/400x400/3D312E/E8DCC4?text=Interieur'">
+            <img src="afbeeldingen kapteintje/terras.webp" class="galerij-item" alt="Terras" onclick="openModal(this.src)" onerror="this.src='https://placehold.co/400x400/3D312E/E8DCC4?text=Terras'">
         </div>
     </section>
+
+    <!-- Modal Lightbox -->
+    <div id="imageModal">
+        <span id="close-btn" onclick="closeModal()">&times;</span>
+        <img id="modal-img" src="" alt="Grotere weergave">
+    </div>
 
     <section id="reviews" class="container">
         <h2 class="sectie-titel">Wat Klanten Zeggen</h2>
         <div class="reviews-grid">
-            <div class="review-kaart">
-                <div class="review-auteur">F. D'hooge</div>
-                <div class="sterren">★★★★★</div>
-                <p class="review-tekst">"Beste café van Blankenberge met de lekkerste Stella!"</p>
-            </div>
-            <div class="review-kaart">
-                <div class="review-auteur">J. de Bakker</div>
-                <div class="sterren">★★★★★</div>
-                <p class="review-tekst">"Snel, vriendelijk en heel gezellig voor groepen."</p>
-            </div>
-            <div class="review-kaart">
-                <div class="review-auteur">K. Bruggeman</div>
-                <div class="sterren">★★★★★</div>
-                <p class="review-tekst">"Geweldige bediening met een glimlach, altijd sfeer."</p>
-            </div>
-            <div class="review-kaart">
-                <div class="review-auteur">D. Jurewyts</div>
-                <div class="sterren">★★★★★</div>
-                <p class="review-tekst">"Een authentiek bruin café zoals je ze zelden nog ziet."</p>
-            </div>
-            <div class="review-kaart">
-                <div class="review-auteur">J. Vrijs</div>
-                <div class="sterren">★★★★★</div>
-                <p class="review-tekst">"Heerlijk terras met prachtig zicht op de haven."</p>
-            </div>
-            <div class="review-kaart">
-                <div class="review-auteur">T. Geuns</div>
-                <div class="sterren">★★★★★</div>
-                <p class="review-tekst">"Hier kom je voor de gezelligheid en de bierkaart."</p>
-            </div>
+            <div class="review-kaart"><div class="review-auteur">F. D'hooge</div><div class="sterren">★★★★★</div><p class="review-tekst">"Beste café van Blankenberge met de lekkerste Stella!"</p></div>
+            <div class="review-kaart"><div class="review-auteur">J. de Bakker</div><div class="sterren">★★★★★</div><p class="review-tekst">"Snel, vriendelijk en heel gezellig voor groepen."</p></div>
+            <div class="review-kaart"><div class="review-auteur">K. Bruggeman</div><div class="sterren">★★★★★</div><p class="review-tekst">"Geweldige bediening met een glimlach, altijd sfeer."</p></div>
+            <div class="review-kaart"><div class="review-auteur">D. Jurewyts</div><div class="sterren">★★★★★</div><p class="review-tekst">"Een authentiek bruin café zoals je ze zelden nog ziet."</p></div>
+            <div class="review-kaart"><div class="review-auteur">J. Vrijs</div><div class="sterren">★★★★★</div><p class="review-tekst">"Heerlijk terras met prachtig zicht op de haven."</p></div>
+            <div class="review-kaart"><div class="review-auteur">T. Geuns</div><div class="sterren">★★★★★</div><p class="review-tekst">"Hier kom je voor de gezelligheid en de bierkaart."</p></div>
         </div>
     </section>
 
-    <!-- Socials Sectie -->
     <section id="socials" class="container">
         <h2 class="sectie-titel">Volg ons online</h2>
         <div class="socials-grid">
             <a href="https://www.facebook.com/cafetkapiteintje" target="_blank" class="social-kaart">
-                <i class="fab fa-facebook"></i>
-                <span>Facebook</span>
+                <i class="fab fa-facebook" style="font-size: 3rem; color: var(--antiek-goud);"></i>
+                <h3 style="margin-top: 1rem;">Facebook</h3>
             </a>
             <a href="https://www.instagram.com/kapiteintjeblankenberge/" target="_blank" class="social-kaart">
-                <i class="fab fa-instagram"></i>
-                <span>Instagram</span>
+                <i class="fab fa-instagram" style="font-size: 3rem; color: var(--antiek-goud);"></i>
+                <h3 style="margin-top: 1rem;">Instagram</h3>
             </a>
         </div>
     </section>
@@ -333,12 +336,29 @@
     <script>
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobileMenu');
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modal-img');
 
         function toggleMenu() {
             mobileMenu.classList.toggle('active');
         }
 
         hamburger.addEventListener('click', toggleMenu);
+
+        // Lightbox Functions
+        function openModal(src) {
+            modalImg.src = src;
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        // Close when clicking background
+        modal.addEventListener('click', (e) => {
+            if(e.target === modal) closeModal();
+        });
     </script>
 </body>
 </html>
