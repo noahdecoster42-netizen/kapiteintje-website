@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>'t Kapiteintje | Bruin Café Blankenberge</title>
+    <title>'t Kapiteintje Blankenberge</title>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome voor Iconen -->
+    <!-- FontAwesome voor Socials en Iconen -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
@@ -31,6 +31,7 @@
             color: var(--tekst-kleur);
             line-height: 1.7;
             font-size: 1.1rem;
+            overflow-x: hidden; /* Voorkomt horizontale scrollbalken */
         }
 
         h1, h2, h3 { 
@@ -42,7 +43,7 @@
         /* --- Navigatie --- */
         header {
             background-color: var(--donker-accent);
-            padding: 1.5rem 2rem;
+            padding: 1rem 2rem;
             position: fixed;
             width: 100%;
             top: 0;
@@ -54,7 +55,7 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             font-family: 'Playfair Display', serif;
             color: var(--antiek-goud);
@@ -130,20 +131,20 @@
         .hero-image img { width: 100%; height: 100%; object-fit: cover; }
 
         /* --- Secties --- */
-        section { scroll-margin-top: 100px; }
+        section { scroll-margin-top: 80px; }
         .container { max-width: 1100px; margin: 0 auto; padding: 4rem 20px; }
         .sectie-titel { text-align: center; font-size: 3.5rem; margin-bottom: 3rem; }
 
         /* --- Kaarten & Grids --- */
         .info-grid, .troeven-container, .reviews-grid, .socials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         .info-kaart, .troef-box, .review-kaart, .social-kaart {
             background-color: var(--warm-bruin);
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: 4px;
             border: 1px solid rgba(197, 160, 89, 0.3);
             transition: transform 0.3s ease, border-color 0.3s ease;
@@ -154,18 +155,17 @@
             border-color: var(--antiek-goud);
         }
 
-        .info-kaart h3, .troef-box h3 { font-size: 1.8rem; margin-bottom: 1.5rem; }
-        .info-kaart p, .info-kaart li, .troef-box p { font-size: 1.25rem; color: var(--crème); }
+        .info-kaart h3, .troef-box h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+        .info-kaart p, .info-kaart li, .troef-box p { font-size: 1.1rem; color: var(--crème); }
 
         /* --- Socials Specifiek --- */
         .social-kaart { text-align: center; text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; color: var(--crème); }
-        .social-kaart i { font-size: 4rem; color: var(--antiek-goud); }
+        .social-kaart i { font-size: 3.5rem; color: var(--antiek-goud); }
         .social-kaart span { font-size: 1.5rem; font-weight: bold; }
 
         /* --- Galerij --- */
         .galerij-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-        .galerij-item { width: 100%; height: 250px; object-fit: cover; border-radius: 2px; border: 2px solid var(--warm-bruin); transition: transform 0.3s; }
-        .galerij-item:hover { transform: scale(1.02); }
+        .galerij-item { width: 100%; height: 250px; object-fit: cover; border-radius: 2px; border: 2px solid var(--warm-bruin); }
 
         /* --- Reviews --- */
         .review-auteur { font-weight: 700; color: var(--antiek-goud); margin-bottom: 5px; font-size: 1.2rem; }
@@ -179,7 +179,9 @@
             .hero { grid-template-columns: 1fr; height: auto; }
             .hero-content { padding: 2rem; text-align: center; align-items: center; }
             .hero-content .btn-primair { align-self: center; }
-            .sectie-titel { font-size: 2.5rem; }
+            .sectie-titel { font-size: 2.2rem; margin-bottom: 2rem; }
+            .container { padding: 2rem 15px; } /* Zorgt voor marge aan de zijkanten */
+            .info-grid, .troeven-container, .reviews-grid, .socials-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -272,7 +274,7 @@
             <img src="afbeeldingen kapteintje/sfeer kapiteintje.jpg" class="galerij-item" alt="Sfeer" onerror="this.src='https://placehold.co/400x400/3D312E/E8DCC4?text=Sfeer'">
             <img src="afbeeldingen kapteintje/stella aan de bar.jpeg" class="galerij-item" alt="Stella" onerror="this.src='https://placehold.co/400x400/3D312E/E8DCC4?text=Bar'">
             <img src="afbeeldingen kapteintje/interieur.jpg" class="galerij-item" alt="Interieur" onerror="this.src='https://placehold.co/400x400/3D312E/E8DCC4?text=Interieur'">
-            <img src="afbeeldingen kapteintje/terras.webp" class="galerij-item" alt="Terras" onerror="this.src='https://placehold.co/400x400/3D312E/E8DCC4?text=Terras'">
+            <img src="afbeeldingen kapteintje/terras.webp"galerij-item" alt="Terras" onerror="this.src='https://placehold.co/400x400/3D312E/E8DCC4?text=Terras'">
         </div>
     </section>
 
@@ -312,7 +314,7 @@
         </div>
     </section>
 
-    <!-- Nieuwe Socials Sectie -->
+    <!-- Socials Sectie -->
     <section id="socials" class="container">
         <h2 class="sectie-titel">Volg ons online</h2>
         <div class="socials-grid">
